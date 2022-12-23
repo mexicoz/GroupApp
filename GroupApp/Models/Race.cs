@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GroupApp.Models
 {
-	public class Races
+	public class Race
 	{
 		[Key]
 		public int Id { get; set; }
@@ -19,6 +19,6 @@ namespace GroupApp.Models
 
 		[ForeignKey("AppUser")]
 		public string? AppUserId { get; set; }
-		public AppUser AppUser { get; set; }
+		public AppUser? AppUser { get; set; }
 	}
 }
