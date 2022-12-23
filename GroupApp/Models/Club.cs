@@ -14,7 +14,7 @@ namespace GroupApp.Models
 		
 		[ForeignKey("Address")]
 		public int AdressId { get; set; }
-		public Adress Adress { get; set; }
+		public Address Address { get; set; }
 		public ClubCategory ClubCategory { get; set; }
 
 		[ForeignKey("AppUser")]

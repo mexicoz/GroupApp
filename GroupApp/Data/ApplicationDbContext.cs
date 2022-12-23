@@ -12,7 +12,7 @@ namespace GroupApp.Data
 
 		public DbSet<Race> Races { get; set; }
 		public DbSet<Club> Clubs { get; set; }	
-		public DbSet<Adress> Adresses { get; set; }
+		public DbSet<Address> Adresses { get; set; }
 
 	}
 }

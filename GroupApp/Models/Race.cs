@@ -13,8 +13,8 @@ namespace GroupApp.Models
 		public string Image { get; set; }
 
 		[ForeignKey("Adress")]
-		public int AdressId { get; set; }
-		public Adress Adress { get; set; }
+		public int AddressId { get; set; }
+		public Address Address { get; set; }
 		public RaceCategory RaceCategory { get; set; }
 
 		[ForeignKey("AppUser")]
