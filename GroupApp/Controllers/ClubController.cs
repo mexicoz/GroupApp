@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GroupApp.Data;
+using GroupApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GroupApp.Controllers
 {
 	public class ClubController : Controller
 	{
-		public IActionResult Index()
+		private readonly ApplicationDbContext _context;
+
+		public ClubController(ApplicationDbContext context)
 		{
-			return View();
+            _context = context;
+        }
+        public IActionResult Index()
+		{
+			List<Club> clubs = _context.Clubs.ToList();
+
+			return View(clubs);
 		}
 	}
 }
