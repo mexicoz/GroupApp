@@ -1,6 +1,7 @@
 ﻿using GroupApp.Data;
 using GroupApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GroupApp.Controllers
 {
@@ -18,5 +19,10 @@ namespace GroupApp.Controllers
 
 			return View(races);
 		}
-	}
+        public IActionResult Detail(int id)
+        {
+            Race race = _context.Races.Include(a => a.Address).FirstOrDefault(c => c.Id == id);
+            return View(race);
+        }
+    }
 }
