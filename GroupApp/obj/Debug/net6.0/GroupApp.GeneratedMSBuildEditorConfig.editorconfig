@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\C#\GroupApp\GroupApp
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/C\#/GroupApp/GroupApp/Views/Club/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/C\#/GroupApp/GroupApp/Views/Club/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2x1YlxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
