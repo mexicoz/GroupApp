@@ -37,7 +37,7 @@ namespace GroupApp.Repository
 
         public async Task<Race> GetAllRacesById(int id)
         {
-            return await _context.Races.Include(a => a.Address).FirstOrDefaultAsync();
+            return await _context.Races.Include(a => a.Address).FirstOrDefaultAsync(i => i.Id == id);
         }
 
         public bool Save()
