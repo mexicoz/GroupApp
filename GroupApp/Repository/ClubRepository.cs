@@ -40,6 +40,10 @@ namespace GroupApp.Repository
         {
             return await _context.Clubs.Include(c => c.Address).FirstOrDefaultAsync(i => i.Id == id);
         }
+        public async Task<Club> GetClubByIdNoTracking(int id)
+        {
+            return await _context.Clubs.Include(c => c.Address).AsNoTracking().FirstOrDefaultAsync(i => i.Id == id);
+        }
 
         public bool Save()
         {
