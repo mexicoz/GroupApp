@@ -87,3 +87,8 @@ F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.W
 F:\C#\GroupApp\GroupApp\obj\Debug\net6.0\GroupApp.csproj.CopyComplete
 F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\CloudinaryDotNet.dll
 F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+F:\C#\GroupApp\GroupApp\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
