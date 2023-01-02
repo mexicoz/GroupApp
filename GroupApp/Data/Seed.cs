@@ -125,21 +125,21 @@ namespace GroupApp.Data
 
 				//Users
 				var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-				string adminUserEmail = "teddysmithdeveloper@gmail.com";
+				string adminUserEmail = "defaultikom@gmail.com";
 
 				var adminUser = await userManager.FindByEmailAsync(adminUserEmail);
 				if (adminUser == null)
 				{
 					var newAdminUser = new AppUser()
 					{
-						UserName = "teddysmithdev",
+						UserName = "localbabaka",
 						Email = adminUserEmail,
 						EmailConfirmed = true,
 						Address = new Address()
 						{
-							Street = "123 Main St",
-							City = "Charlotte",
-							State = "NC"
+							Street = "5 Main St",
+							City = "Kremenchuk",
+							State = "PT"
 						}
 					};
 					await userManager.CreateAsync(newAdminUser, "Coding@1234?");
@@ -158,10 +158,10 @@ namespace GroupApp.Data
 						EmailConfirmed = true,
 						Address = new Address()
 						{
-							Street = "123 Main St",
-							City = "Charlotte",
-							State = "NC"
-						}
+							Street = "5 Main St",
+							City = "Kremenchuk",
+							State = "PT"
+                        }
 					};
 					await userManager.CreateAsync(newAppUser, "Coding@1234?");
 					await userManager.AddToRoleAsync(newAppUser, UserRoles.User);
