@@ -1,6 +1,5 @@
 ﻿using GroupApp.Interfaces;
 using GroupApp.Models;
-using GroupApp.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroupApp.Controllers
@@ -8,10 +7,12 @@ namespace GroupApp.Controllers
     public class RaceController : Controller
     {
         private readonly IRaceRepository _raceRepository;
+        private readonly IHttpContextAccessor _contextAccessor;
 
-        public RaceController(IRaceRepository raceRepository)
+        public RaceController(IRaceRepository raceRepository, IHttpContextAccessor contextAccessor)
         {
             _raceRepository = raceRepository;
+            _contextAccessor = contextAccessor;
         }
         public async Task<IActionResult> Index()
         {
@@ -26,7 +27,9 @@ namespace GroupApp.Controllers
         }
         public IActionResult Create()
         {
-            return View();
+            var curUser = _contextAccessor.HttpContext?.User.GetUserId();
+            var createRace = new Race { AppUserId = curUser };
+            return View(createRace);
         }
         [HttpPost]
         public async Task<IActionResult> Create(Race race)
@@ -47,6 +50,7 @@ namespace GroupApp.Controllers
                 Title = race.Title,
                 Description = race.Description,
                 Image = race.Image,
+                AppUserId = race.AppUserId,
                 AddressId = race.AddressId,
                 Address = race.Address,
                 RaceCategory = race.RaceCategory

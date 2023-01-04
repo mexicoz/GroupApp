@@ -7,10 +7,12 @@ namespace GroupApp.Controllers
 	public class ClubController : Controller
 	{
         private readonly IClubRepository _clubRepository;
+		private readonly IHttpContextAccessor _contextAccessor;
 
-        public ClubController(IClubRepository clubRepository)
+        public ClubController(IClubRepository clubRepository, IHttpContextAccessor httpContextAccessor)
 		{
             _clubRepository = clubRepository;
+			_contextAccessor = httpContextAccessor;
         }
         public async Task<IActionResult> Index()
 		{
@@ -25,7 +27,9 @@ namespace GroupApp.Controllers
 		}
 		public IActionResult Create()
 		{
-			return View();
+			var curUser = _contextAccessor.HttpContext?.User.GetUserId();
+			var createClub = new Club { AppUserId = curUser };
+			return View(createClub);
 		}
         [HttpPost]
         public async Task<IActionResult> Create(Club club)
@@ -46,6 +50,7 @@ namespace GroupApp.Controllers
 				Title = club.Title,
 				Description = club.Description,
                 Image = club.Image,
+				AppUserId = club.AppUserId,
                 AddressId = club.AddressId,
 				Address = club.Address,
 				ClubCategory = club.ClubCategory
