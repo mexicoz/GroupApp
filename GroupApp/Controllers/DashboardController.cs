@@ -7,9 +7,9 @@ namespace GroupApp.Controllers
 	public class DashboardController : Controller
 	{
         private readonly IDashboardRepository _repository;
-        private readonly HttpContextAccessor _httpContextAccessor;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DashboardController(IDashboardRepository repository, HttpContextAccessor httpContextAccessor)
+        public DashboardController(IDashboardRepository repository, IHttpContextAccessor httpContextAccessor)
 		{
             _repository = repository;
             _httpContextAccessor = httpContextAccessor;
