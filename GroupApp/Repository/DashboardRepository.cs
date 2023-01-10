@@ -34,5 +34,20 @@ namespace GroupApp.Repository
         {
             return await _context.Users.FindAsync(id);
         }
+
+        public async Task<AppUser> GetUserByIdNoTracking(string id)
+        {
+            return await _context.Users.Where(u => u.Id == id).AsNoTracking().FirstOrDefaultAsync();
+        }
+        public bool Save()
+        {
+            var saved = _context.SaveChanges();
+            return saved > 0 ? true : false;
+        }
+        public bool Update(AppUser club)
+        {
+            _context.Update(club);
+            return Save();
+        }
     }
 }
