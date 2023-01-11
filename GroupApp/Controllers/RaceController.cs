@@ -1,5 +1,6 @@
 ﻿using GroupApp.Interfaces;
 using GroupApp.Models;
+using GroupApp.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GroupApp.Controllers
@@ -87,6 +88,21 @@ namespace GroupApp.Controllers
             {
                 return View(raceM);
             }
+        }
+        public async Task<IActionResult> Delete(int id)
+        {
+            var clubDetails = await _raceRepository.GetAllRacesById(id);
+            if (clubDetails == null) return View("Error");
+            return View(clubDetails);
+        }
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteClub(int id)
+        {
+            var raceDetails = await _raceRepository.GetAllRacesById(id);
+            if (raceDetails == null) return View("Error");
+
+            _raceRepository.Delete(raceDetails);
+            return RedirectToAction("Index");
         }
     }
 }
